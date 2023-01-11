@@ -23,4 +23,5 @@ const TwoColumnSidebar = ({ children }) => {
     </div>
   )
 }
+
 export { TwoColumn, TwoColumnMain, TwoColumnSidebar }
