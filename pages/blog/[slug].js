@@ -39,6 +39,7 @@ const Post = ({
 
         <figure>
           <Image
+            key={eyecatch.url}
             src={eyecatch.url}
             alt=''
             style={{ width: '100%', height: 'auto' }}
