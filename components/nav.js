@@ -1,18 +1,36 @@
+import { useState } from 'react'
 import Link from 'next/link'
 import styles from 'styles/nav.module.css'
 
 const Nav = () => {
+  const [navIsOpen, setNavIsOpen] = useState(false)
+  const toggleNav = () => {
+    setNavIsOpen((prev) => !prev)
+  }
+  const closeNav = () => {
+    setNavIsOpen(false)
+  }
   return (
-    <nav>
+    <nav className={navIsOpen ? styles.open : styles.close}>
+      <button className={styles.btn} onClick={toggleNav}>
+        <span className={styles.bar} />
+        <span className='sr-only'>MENU</span>
+      </button>
       <ul className={styles.list}>
         <li>
-          <Link legacyBehavior href='/'><a>Home</a></Link>
+          <Link legacyBehavior href='/'>
+            <a onClick={closeNav}>Home</a>
+          </Link>
         </li>
         <li>
-          <Link legacyBehavior href='/about'><a>About</a></Link>
+          <Link legacyBehavior href='/about'>
+            <a onClick={closeNav}>About</a>
+          </Link>
         </li>
         <li>
-          <Link legacyBehavior href='/blog'><a>Blog</a></Link>
+          <Link legacyBehavior href='/blog'>
+            <a onClick={closeNav}>Blog</a>
+          </Link>
         </li>
       </ul>
     </nav>
